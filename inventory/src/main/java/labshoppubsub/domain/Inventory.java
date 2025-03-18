@@ -31,7 +31,6 @@ public class Inventory {
     //<<< Clean Arch / Port Method
     public static void decreaseStock(OrderPlaced orderPlaced) {
                 
-               
         repository().findById(Long.valueOf(orderPlaced.getProductId())).ifPresent(inventory->{
             
             inventory.setStock(inventory.getStock() - orderPlaced.getQty()); // do something
@@ -39,6 +38,9 @@ public class Inventory {
 
 
          });
+                 
+            
+      
         
       
         //implement business logic here:
