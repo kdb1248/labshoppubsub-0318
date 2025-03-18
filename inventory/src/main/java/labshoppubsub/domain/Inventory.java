@@ -30,6 +30,17 @@ public class Inventory {
 
     //<<< Clean Arch / Port Method
     public static void decreaseStock(OrderPlaced orderPlaced) {
+                
+               
+        repository().findById(Long.valueOf(orderPlaced.getProductId())).ifPresent(inventory->{
+            
+            inventory.setStock(inventory.getStock() - orderPlaced.getQty()); // do something
+            repository().save(inventory);
+
+
+         });
+        
+      
         //implement business logic here:
 
         /** Example 1:  new item 
@@ -49,9 +60,9 @@ public class Inventory {
 
          });
         */
-
+    
     }
     //>>> Clean Arch / Port Method
-
+    
 }
 //>>> DDD / Aggregate Root
